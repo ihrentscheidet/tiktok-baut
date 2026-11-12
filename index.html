@@ -93,11 +93,21 @@ h2 { font-size: clamp(30px, 4.2vw, 48px); font-weight: 600; letter-spacing: -.04
 .option p { font-size: 14px; color: var(--text-2); line-height: 1.55; margin-top: 6px; }
 .how { display: flex; align-items: center; gap: 10px; margin-top: 24px; font-size: 14px; color: var(--text-2); }
 
+.win { display: grid; grid-template-columns: 1.1fr 1fr; gap: 12px; }
+.quote { padding: 28px; border-radius: 14px; border: 1px solid var(--line-strong); background: linear-gradient(180deg, rgba(255,255,255,.06), var(--panel) 60%); box-shadow: 0 0 80px rgba(190,210,255,.07); display: grid; gap: 18px; align-content: space-between; }
+.quote q { font-size: clamp(22px, 3vw, 32px); font-weight: 600; letter-spacing: -.035em; line-height: 1.2; quotes: "„" "“"; }
+.quote .btn { justify-self: start; }
+.feats { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.feat { display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 16px 20px; font-size: 14px; }
+.feat + .feat { border-top: 1px solid var(--line); }
+.feat span { color: var(--text-2); }
+.feat em { font: 500 12px/1.4 var(--mono); font-style: normal; color: var(--text-3); text-align: right; }
 .log { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
 .entry { display: grid; grid-template-columns: 88px 1fr auto; gap: 24px; align-items: center; padding: 20px 24px; }
 .entry + .entry { border-top: 1px solid var(--line); }
 .entry h3 { font-size: 15px; font-weight: 500; letter-spacing: -.01em; }
 .entry p { font-size: 14px; color: var(--text-2); }
+.entry h3 a { color: inherit; text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 3px; }
 .state { display: inline-flex; align-items: center; gap: 8px; font: 500 12px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--text-2); }
 .state .icon { width: 14px; height: 14px; color: var(--live); }
 .entry.open h3, .entry.open .state { color: var(--text-3); }
@@ -118,7 +128,9 @@ footer { padding: 28px 0 56px; border-top: 1px solid var(--line); font-size: 13p
   .fact b { font-size: 19px; }
   .fact span { font-size: 12px; line-height: 1.35; display: block; }
   section { padding: 72px 0; }
-  .options { grid-template-columns: 1fr; }
+  .options, .win { grid-template-columns: 1fr; }
+  .feat { grid-template-columns: 1fr; gap: 2px; }
+  .feat em { text-align: left; }
   .option h3 { margin-top: 28px; }
   .entry { grid-template-columns: 1fr auto; gap: 8px 16px; padding: 18px 16px; }
   .entry .mono { grid-column: 1 / -1; }
@@ -133,7 +145,7 @@ footer { padding: 28px 0 56px; border-top: 1px solid var(--line); font-size: 13p
   <div class="wrap">
     <nav class="nav">
       <div class="brand"><div class="mark">?</div><span>Noch ohne Namen</span><em>den wählt ihr</em></div>
-      <span class="pill"><span class="live"></span>Folge 01</span>
+      <span class="pill"><span class="live"></span>Folge 02</span>
     </nav>
   </div>
 
@@ -142,30 +154,56 @@ footer { padding: 28px 0 56px; border-top: 1px solid var(--line); font-size: 13p
     <h1>Diese Website gehört <i>TikTok.</i></h1>
     <p class="lead">Jede Folge stimmt ihr ab, was als Nächstes gebaut wird. Der Kommentar mit den meisten Likes gewinnt und wird eingebaut. Egal, was es ist.</p>
     <div class="actions">
-      <a class="btn btn-white" href="#abstimmung">Zur Abstimmung
-        <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      <a class="btn btn-white" href="lama/">Lama-Chaos spielen
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
-      <a class="btn btn-ghost" href="#verlauf">Verlauf ansehen</a>
+      <a class="btn btn-ghost" href="#abstimmung">Zur Abstimmung</a>
     </div>
     <div class="facts">
-      <div class="fact"><b>1</b><span>Folge online</span></div>
-      <div class="fact"><b>0</b><span>Entscheidungen von euch</span></div>
+      <div class="fact"><b>2</b><span>Folgen online</span></div>
+      <div class="fact"><b>1</b><span>Entscheidung von euch</span></div>
       <div class="fact"><b>1</b><span>Regel: ihr entscheidet</span></div>
     </div>
   </div>
 </header>
 
 <main>
-  <section id="abstimmung">
+  <section id="ergebnis">
     <div class="wrap">
       <div class="head reveal">
-        <span class="mono">Abstimmung 01</span>
-        <h2>Was soll diese Seite werden?</h2>
-        <p>Im Moment ist hier fast nichts. Das ist Absicht. Es gibt keine Vorgaben: Die erste Idee kommt von euch.</p>
+        <span class="mono">Ergebnis Abstimmung 01</span>
+        <h2>Ihr wolltet ein Lama. Ihr habt ein Lama.</h2>
+        <p>Der Kommentar mit den meisten Likes wollte ein Spiel mit einem Lama, das durch eine Stadt zieht. Die Antworten darunter haben den Rest entschieden.</p>
+      </div>
+      <div class="win">
+        <div class="quote reveal">
+          <span class="mono">Top-Kommentar</span>
+          <q>Kann man ein Spiel mit einem Lama, das wie GTA ist? Das wäre cool.</q>
+          <a class="btn btn-white" href="lama/">Jetzt spielen
+            <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="feats reveal">
+          <div class="feat"><span>Ein Lama, frei in einer ganzen Stadt</span><em>Top-Kommentar</em></div>
+          <div class="feat"><span>Spucken: Leute, Autos, Stände</span><em>Antwort</em></div>
+          <div class="feat"><span>Laseraugen, die alles grillen</span><em>Antwort</em></div>
+          <div class="feat"><span>Einstellbar: maximaler Arbeitsspeicher</span><em>TikTok-Kommentar</em></div>
+          <div class="feat"><span>Geheime Funktion unter Einstellungen &rarr; Games</span><em>Antwort</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="abstimmung" style="padding-top:0">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="mono">Abstimmung 02</span>
+        <h2>Was bauen wir als Nächstes?</h2>
+        <p>Neues Spiel, neue Funktion, etwas komplett anderes. Wieder keine Vorgaben.</p>
       </div>
       <div class="ask reveal">
         <span class="mono">Eure Idee</span>
-        <p class="ask-line">Vielleicht ein Startup?<span class="caret"></span></p>
+        <p class="ask-line">Vielleicht ein zweites Spiel?<span class="caret"></span></p>
       </div>
       <div class="options">
         <article class="option reveal">
@@ -203,8 +241,13 @@ footer { padding: 28px 0 56px; border-top: 1px solid var(--line); font-size: 13p
           <div><h3>Die Startseite</h3><p>Dunkel, fast leer und bereit für eure Entscheidungen.</p></div>
           <span class="state"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Fertig</span>
         </div>
-        <div class="entry open">
+        <div class="entry">
           <span class="mono">Folge 02</span>
+          <div><h3><a href="lama/">Lama-Chaos</a></h3><p>Ein Browserspiel, komplett aus euren Kommentaren.</p></div>
+          <span class="state"><svg class="icon" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>Fertig</span>
+        </div>
+        <div class="entry open">
+          <span class="mono">Folge 03</span>
           <div><h3>Das entscheidet ihr</h3></div>
           <span class="state">Offen</span>
         </div>
